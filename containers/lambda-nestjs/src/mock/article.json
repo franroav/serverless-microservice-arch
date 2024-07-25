@@ -1,0 +1,15 @@
+{
+    "created_at": "2022-02-15T00:18:38.000Z",
+    "title": "Show HN: StealthDrop – Anonymous crypto airdrops using zero-knowledge proofs",
+    "url": "https://github.com/nalinbhardwaj/stealthdrop",
+    "author": "nibnalin",
+    "points": 105,
+    "story_text": "Hi HN,<p>We (myself, Adhyyan1252 and yush_g) are undergrad students that hacked out this side project last month during Hack Lodge[1] (the ideas and many of the underlying circuits for which came from the 0xPARC community[2])! We’re extremely excited to share this new primitive.<p>Besides the technical challenges building this project that folks here would find interesting (fixing the ZK proof compiler, modifying nodeJS V8 params etc.), we think this is a very novel use case for ZK tech, and ECDSA inside ZK-SNARKs is a starting point that unlocks many other ideas! :D<p>A summarized version of our README, with more thoughts on why you would want to enable this in the first place, is also in this Twitter thread[3]!<p>[1]: <a href=\"https:&#x2F;&#x2F;hacklodge.org\" rel=\"nofollow\">https:&#x2F;&#x2F;hacklodge.org</a><p>[2]: <a href=\"https:&#x2F;&#x2F;0xparc.org\" rel=\"nofollow\">https:&#x2F;&#x2F;0xparc.org</a><p>[3]: <a href=\"https:&#x2F;&#x2F;twitter.com&#x2F;0xparc&#x2F;status&#x2F;1493363943036923912\" rel=\"nofollow\">https:&#x2F;&#x2F;twitter.com&#x2F;0xparc&#x2F;status&#x2F;1493363943036923912</a>",
+    "comment_text": null,
+    "num_comments": 25,
+    "story_id": null,
+    "story_title": null,
+    "story_url": null,
+    "parent_id": null,
+    "created_at_i": 1644884318
+}

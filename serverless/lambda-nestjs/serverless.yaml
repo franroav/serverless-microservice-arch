@@ -1,0 +1,235 @@
+# # PROD STAGE USAGE -  LAMBDA ECR IMAGE
+# # -------------------------------------
+# service: lambda-nestjs
+
+# useDotenv: true
+
+# plugins:
+#   - serverless-plugin-optimize
+#   - serverless-offline
+#   - serverless-dotenv-plugin  
+
+# provider:
+#   timeout: 30
+#   name: aws
+#   runtime: nodejs18.x
+#   environment:
+#     MONGODB_URI: ${env:MONGODB_URI}
+#     JWT_SECRET: ${env:JWT_SECRET}
+#     JWT_EXPIRATION_TIME: ${env:JWT_EXPIRATION_TIME}
+#     SECRET_KEY: ${env:SECRET_KEY}
+
+# functions:
+#   main:
+#     image:
+#       name: my-nestjs-app
+#       uri: 921283598378.dkr.ecr.us-east-1.amazonaws.com/lambda-nestjs-repo # YOUR_ECR_REPOSITORY_URI:latest
+#     events:
+#       - http:
+#           method: any
+#           path: /{any+}
+          
+# custom:
+#   serverless-offline:
+#     stage: local
+#     host: localhost
+#     port: 3000
+#     prefix: ''
+
+
+
+# LOCAL STAGE USAGE -  HANDLER VERSION
+# -------------------------------------
+service: lambda-nestjs
+
+useDotenv: true
+
+plugins:
+#  - serverless-plugin-typescript
+ - serverless-plugin-optimize
+ - serverless-offline
+ - serverless-dotenv-plugin  
+
+provider:
+  timeout: 30
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    MONGODB_URI: ${env:MONGODB_URI}
+    JWT_SECRET: ${env:JWT_SECRET}
+    JWT_EXPIRATION_TIME: ${env:JWT_EXPIRATION_TIME}
+    SECRET_KEY: ${env:SECRET_KEY}
+
+functions:
+  main:
+    handler: .build/src/lambda.handler
+    events:
+      - http:
+          method: any
+          path: /{any+}
+custom:
+  serverless-offline:
+    stage: local
+    host: localhost
+    port: 3000
+    prefix: ''
+
+
+
+# service: lambda-nestjs
+
+# useDotenv: true
+
+# plugins:
+#   - serverless-plugin-optimize
+#   - serverless-offline
+#   - serverless-dotenv-plugin
+#   - serverless-openapi-documentation
+
+# provider:
+#   timeout: 30
+#   name: aws
+#   runtime: nodejs18.x
+#   environment:
+#     MONGODB_URI: ${env:MONGODB_URI}
+#     JWT_SECRET: ${env:JWT_SECRET}
+#     JWT_EXPIRATION_TIME: ${env:JWT_EXPIRATION_TIME}
+#     SECRET_KEY: ${env:SECRET_KEY}
+
+# functions:
+#   main:
+#     handler: src/lambda.handler
+#     events:
+#       - http:
+#           method: ANY
+#           path: /api
+#       - http:
+#           method: ANY
+#           path: /api/{proxy+}
+#       - http:
+#           method: POST
+#           path: /api/articles
+
+# custom:
+#   documentation:
+#     version: '1'
+#     title: 'Serverless Nest Mongo'
+#     description: 'Desafio Desarollador Fullstack'
+#     models:
+#       - name: "ErrorResponse"
+#         description: "This is an error response"
+#         contentType: "application/json"
+#         schema:
+#           type: "object"
+#           properties:
+#             message:
+#               type: "string"
+#       - name: "CreateArticleRequest"
+#         description: "Request model for creating an article"
+#         contentType: "application/json"
+#         schema:
+#           type: "object"
+#           properties:
+#             title:
+#               type: "string"
+#             content:
+#               type: "string"
+#       - name: "CreateArticleResponse"
+#         description: "Response model for creating an article"
+#         contentType: "application/json"
+#         schema:
+#           type: "object"
+#           properties:
+#             id:
+#               type: "string"
+#             title:
+#               type: "string"
+#             content:
+#               type: "string"
+
+#     endpoints:
+#       - path: /api/articles
+#         method: POST
+#         documentation:
+#           summary: "Create Article"
+#           description: "Creates a new article"
+#           requestBody:
+#             description: "A JSON object containing the article data"
+#           requestModels:
+#             application/json: "CreateArticleRequest"
+#           methodResponses:
+#             - statusCode: 201
+#               responseBody:
+#                 description: "A JSON object containing the created article data"
+#               responseModels:
+#                 application/json: "CreateArticleResponse"
+#             - statusCode: 500
+#               responseBody:
+#                 description: "An error message when creating a new article"
+#               responseModels:
+#                 application/json: "ErrorResponse"
+
+#   serverless-offline:
+#     stage: local
+#     host: localhost
+#     port: 3000
+#     prefix: ''
+
+
+
+# # service: my-service
+
+# # provider:
+# #   name: aws
+# #   runtime: nodejs18.x
+# #   environment:
+# #     MONGODB_URI: ${env:MONGODB_URI}
+# #     JWT_SECRET: ${env:JWT_SECRET}
+# #     JWT_EXPIRATION_TIME: ${env:JWT_EXPIRATION_TIME}
+# #     SECRET_KEY: ${env:SECRET_KEY}
+
+# # plugins:
+# #   - serverless-plugin-optimize
+# #   - serverless-offline
+# #   - serverless-dotenv-plugin
+# #   - serverless-openapi-documentation
+
+# # functions:
+# #   main:
+# #     handler: handler.main
+# #     events:
+# #       - http:
+# #           path: /
+# #           method: get
+# #           documentation:
+# #             summary: "Main function"
+# #             description: "Returns a greeting"
+# #             requestHeaders:
+# #               - name: "Authorization"
+# #                 description: "Authorization token"
+# #             responseHeaders:
+# #               - name: "Content-Type"
+# #                 description: "Content type of the response"
+# #             queryParams:
+# #               - name: "name"
+# #                 description: "Name to greet"
+# #             responses:
+# #               200:
+# #                 description: "Greeting response"
+# #                 bodyType: "ResponseModel"
+
+# # custom:
+# #   documentation:
+# #     version: '1'
+# #     title: 'API Documentation'
+# #     description: 'API Documentation for my service'
+# #     models:
+# #       - name: 'ResponseModel'
+# #         contentType: 'application/json'
+# #         schema:
+# #           type: object
+# #           properties:
+# #             message:
+# #               type: string
+
+

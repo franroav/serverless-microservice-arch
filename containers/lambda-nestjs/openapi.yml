@@ -1,0 +1,30 @@
+openapi: 3.0.0
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+    CreateArticleRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+    CreateArticleResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+  securitySchemes: {}
+info:
+  title: Serverless Nest Mongo
+  description: Desafio Desarollador Fullstack
+  version: '1'
+paths: {}

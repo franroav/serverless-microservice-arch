@@ -1,0 +1,390 @@
+{
+  "C:\\laragon\\www\\fullstack\\lambdas\\containers\\lambda-nestjs": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.7",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {
+      "env": {
+        "instance": {
+          "credentials": "<REDACTED>",
+          "serviceConfigFile": {
+            "service": "lambda-nestjs",
+            "useDotenv": true,
+            "plugins": [
+              "serverless-plugin-optimize",
+              "serverless-offline",
+              "serverless-dotenv-plugin",
+              "serverless-openapi-documentation"
+            ],
+            "provider": {
+              "timeout": 30,
+              "name": "aws",
+              "runtime": "nodejs18.x",
+              "environment": {
+                "MONGODB_URI": "mongodb://127.0.0.1/cb_subscription",
+                "JWT_SECRET": "<REDACTED>",
+                "JWT_EXPIRATION_TIME": "3600",
+                "SECRET_KEY": "<REDACTED>",
+                "PORT": "3000",
+                "DB_NAME": "cb_subscription",
+                "NAME": "franroav",
+                "PORT_LOCAL": "3000",
+                "PORT_FOWARDING": "5000",
+                "DB_PORT_LOCAL": "2717",
+                "DB_PORT_FOWARDING": "27017",
+                "MONGO_INITDB_ROOT_USERNAME": "franroav",
+                "MONGO_INITDB_ROOT_PASSWORD": "<REDACTED>",
+                "MONGO_INITDB_DATABASE": "cb_subscription",
+                "MONGO_INITDB_COLLECTION_PRODUCTS": "users"
+              },
+              "stage": "dev",
+              "region": "us-east-1",
+              "versionFunctions": true
+            },
+            "functions": {
+              "main": {
+                "handler": "src/lambda.handler",
+                "events": [
+                  {
+                    "http": {
+                      "method": "ANY",
+                      "path": "/api"
+                    }
+                  },
+                  {
+                    "http": {
+                      "method": "ANY",
+                      "path": "/api/{proxy+}"
+                    }
+                  },
+                  {
+                    "http": {
+                      "method": "POST",
+                      "path": "/api/articles"
+                    }
+                  }
+                ]
+              }
+            },
+            "custom": {
+              "documentation": {
+                "version": "1",
+                "title": "Serverless Nest Mongo",
+                "description": "Desafio Desarollador Fullstack",
+                "models": [
+                  {
+                    "name": "ErrorResponse",
+                    "description": "This is an error response",
+                    "contentType": "application/json",
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "name": "CreateArticleRequest",
+                    "description": "Request model for creating an article",
+                    "contentType": "application/json",
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "name": "CreateArticleResponse",
+                    "description": "Response model for creating an article",
+                    "contentType": "application/json",
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "title": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                ],
+                "endpoints": [
+                  {
+                    "path": "/api/articles",
+                    "method": "POST",
+                    "documentation": {
+                      "summary": "Create Article",
+                      "description": "Creates a new article",
+                      "requestBody": {
+                        "description": "A JSON object containing the article data"
+                      },
+                      "requestModels": {
+                        "application/json": "CreateArticleRequest"
+                      },
+                      "methodResponses": [
+                        {
+                          "statusCode": 201,
+                          "responseBody": {
+                            "description": "A JSON object containing the created article data"
+                          },
+                          "responseModels": {
+                            "application/json": "CreateArticleResponse"
+                          }
+                        },
+                        {
+                          "statusCode": 500,
+                          "responseBody": {
+                            "description": "An error message when creating a new article"
+                          },
+                          "responseModels": {
+                            "application/json": "ErrorResponse"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "serverless-offline": {
+                "stage": "local",
+                "host": "localhost",
+                "port": 3000,
+                "prefix": ""
+              }
+            }
+          },
+          "configFileDirPath": "C:\\laragon\\www\\fullstack\\lambdas\\containers\\lambda-nestjs",
+          "config": {
+            "type": "env"
+          },
+          "options": {
+            "output": "openapi.yml",
+            "format": "yml"
+          },
+          "stage": "dev",
+          "dashboard": null
+        },
+        "resolvers": {}
+      }
+    },
+    "composeServiceName": null,
+    "servicePath": "C:\\laragon\\www\\fullstack\\lambdas\\containers\\lambda-nestjs",
+    "serviceConfigFileName": "serverless.yaml",
+    "service": {
+      "service": "lambda-nestjs",
+      "useDotenv": true,
+      "plugins": [
+        "serverless-plugin-optimize",
+        "serverless-offline",
+        "serverless-dotenv-plugin",
+        "serverless-openapi-documentation"
+      ],
+      "provider": {
+        "timeout": 30,
+        "name": "aws",
+        "runtime": "nodejs18.x",
+        "environment": {
+          "MONGODB_URI": "mongodb://127.0.0.1/cb_subscription",
+          "JWT_SECRET": "<REDACTED>",
+          "JWT_EXPIRATION_TIME": "3600",
+          "SECRET_KEY": "<REDACTED>",
+          "PORT": "3000",
+          "DB_NAME": "cb_subscription",
+          "NAME": "franroav",
+          "PORT_LOCAL": "3000",
+          "PORT_FOWARDING": "5000",
+          "DB_PORT_LOCAL": "2717",
+          "DB_PORT_FOWARDING": "27017",
+          "MONGO_INITDB_ROOT_USERNAME": "franroav",
+          "MONGO_INITDB_ROOT_PASSWORD": "<REDACTED>",
+          "MONGO_INITDB_DATABASE": "cb_subscription",
+          "MONGO_INITDB_COLLECTION_PRODUCTS": "users"
+        },
+        "stage": "dev",
+        "region": "us-east-1",
+        "versionFunctions": true
+      },
+      "functions": {
+        "main": {
+          "handler": "src/lambda.handler",
+          "events": [
+            {
+              "http": {
+                "method": "ANY",
+                "path": "/api"
+              }
+            },
+            {
+              "http": {
+                "method": "ANY",
+                "path": "/api/{proxy+}"
+              }
+            },
+            {
+              "http": {
+                "method": "POST",
+                "path": "/api/articles"
+              }
+            }
+          ]
+        }
+      },
+      "custom": {
+        "documentation": {
+          "version": "1",
+          "title": "Serverless Nest Mongo",
+          "description": "Desafio Desarollador Fullstack",
+          "models": [
+            {
+              "name": "ErrorResponse",
+              "description": "This is an error response",
+              "contentType": "application/json",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            {
+              "name": "CreateArticleRequest",
+              "description": "Request model for creating an article",
+              "contentType": "application/json",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            {
+              "name": "CreateArticleResponse",
+              "description": "Response model for creating an article",
+              "contentType": "application/json",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          ],
+          "endpoints": [
+            {
+              "path": "/api/articles",
+              "method": "POST",
+              "documentation": {
+                "summary": "Create Article",
+                "description": "Creates a new article",
+                "requestBody": {
+                  "description": "A JSON object containing the article data"
+                },
+                "requestModels": {
+                  "application/json": "CreateArticleRequest"
+                },
+                "methodResponses": [
+                  {
+                    "statusCode": 201,
+                    "responseBody": {
+                      "description": "A JSON object containing the created article data"
+                    },
+                    "responseModels": {
+                      "application/json": "CreateArticleResponse"
+                    }
+                  },
+                  {
+                    "statusCode": 500,
+                    "responseBody": {
+                      "description": "An error message when creating a new article"
+                    },
+                    "responseModels": {
+                      "application/json": "ErrorResponse"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "serverless-offline": {
+          "stage": "local",
+          "host": "localhost",
+          "port": 3000,
+          "prefix": ""
+        }
+      }
+    },
+    "serviceRawFile": "# service: my-service\n\n# provider:\n#   name: aws\n#   runtime: nodejs18.x\n#   environment:\n#     MONGODB_URI: ${env:MONGODB_URI}\n#     JWT_SECRET: ${env:JWT_SECRET}\n#     JWT_EXPIRATION_TIME: ${env:JWT_EXPIRATION_TIME}\n#     SECRET_KEY: ${env:SECRET_KEY}\n\n# plugins:\n#   - serverless-plugin-optimize\n#   - serverless-offline\n#   - serverless-dotenv-plugin\n#   - serverless-openapi-documentation\n\n# functions:\n#   main:\n#     handler: handler.main\n#     events:\n#       - http:\n#           path: /\n#           method: get\n#           documentation:\n#             summary: \"Main function\"\n#             description: \"Returns a greeting\"\n#             requestHeaders:\n#               - name: \"Authorization\"\n#                 description: \"Authorization token\"\n#             responseHeaders:\n#               - name: \"Content-Type\"\n#                 description: \"Content type of the response\"\n#             queryParams:\n#               - name: \"name\"\n#                 description: \"Name to greet\"\n#             responses:\n#               200:\n#                 description: \"Greeting response\"\n#                 bodyType: \"ResponseModel\"\n\n# custom:\n#   documentation:\n#     version: '1'\n#     title: 'API Documentation'\n#     description: 'API Documentation for my service'\n#     models:\n#       - name: 'ResponseModel'\n#         contentType: 'application/json'\n#         schema:\n#           type: object\n#           properties:\n#             message:\n#               type: string\n\nservice: lambda-nestjs\n\nuseDotenv: true\n\nplugins:\n  - serverless-plugin-optimize\n  - serverless-offline\n  - serverless-dotenv-plugin\n  - serverless-openapi-documentation\n\nprovider:\n  timeout: 30\n  name: aws\n  runtime: nodejs18.x\n  environment:\n    MONGODB_URI: ${env:MONGODB_URI}\n    JWT_SECRET: ${env:JWT_SECRET}\n    JWT_EXPIRATION_TIME: ${env:JWT_EXPIRATION_TIME}\n    SECRET_KEY: ${env:SECRET_KEY}\n\nfunctions:\n  main:\n    handler: src/lambda.handler\n    events:\n      - http:\n          method: ANY\n          path: /api\n      - http:\n          method: ANY\n          path: /api/{proxy+}\n      - http:\n          method: POST\n          path: /api/articles\n\ncustom:\n  documentation:\n    version: '1'\n    title: 'Serverless Nest Mongo'\n    description: 'Desafio Desarollador Fullstack'\n    models:\n      - name: \"ErrorResponse\"\n        description: \"This is an error response\"\n        contentType: \"application/json\"\n        schema:\n          type: \"object\"\n          properties:\n            message:\n              type: \"string\"\n      - name: \"CreateArticleRequest\"\n        description: \"Request model for creating an article\"\n        contentType: \"application/json\"\n        schema:\n          type: \"object\"\n          properties:\n            title:\n              type: \"string\"\n            content:\n              type: \"string\"\n      - name: \"CreateArticleResponse\"\n        description: \"Response model for creating an article\"\n        contentType: \"application/json\"\n        schema:\n          type: \"object\"\n          properties:\n            id:\n              type: \"string\"\n            title:\n              type: \"string\"\n            content:\n              type: \"string\"\n\n    endpoints:\n      - path: /api/articles\n        method: POST\n        documentation:\n          summary: \"Create Article\"\n          description: \"Creates a new article\"\n          requestBody:\n            description: \"A JSON object containing the article data\"\n          requestModels:\n            application/json: \"CreateArticleRequest\"\n          methodResponses:\n            - statusCode: 201\n              responseBody:\n                description: \"A JSON object containing the created article data\"\n              responseModels:\n                application/json: \"CreateArticleResponse\"\n            - statusCode: 500\n              responseBody:\n                description: \"An error message when creating a new article\"\n              responseModels:\n                application/json: \"ErrorResponse\"\n\n  serverless-offline:\n    stage: local\n    host: localhost\n    port: 3000\n    prefix: ''\n",
+    "command": [
+      "openapi",
+      "generate"
+    ],
+    "options": {
+      "output": "openapi.yml",
+      "format": "yml"
+    },
+    "error": {
+      "message": "Option \"output\" is of type \"string\" but expected type \"undefined\".",
+      "stack": "ServerlessError2: Option \"output\" is of type \"string\" but expected type \"undefined\".\n    at ensure_supported_command_default (file:///C:/Users/franr/.serverless/releases/4.1.7/package/dist/sf-core.js:1043:3087)\n    at runFramework (file:///C:/Users/franr/.serverless/releases/4.1.7/package/dist/sf-core.js:1087:2054)\n    at async route (file:///C:/Users/franr/.serverless/releases/4.1.7/package/dist/sf-core.js:1098:14826)\n    at async Object.run2 [as run] (file:///C:/Users/franr/.serverless/releases/4.1.7/package/dist/sf-core.js:1098:15224)\n    at async run3 (file:///C:/Users/franr/.serverless/releases/4.1.7/package/dist/sf-core.js:1098:16458)",
+      "code": "INVALID_OPTION_TYPE"
+    },
+    "params": {},
+    "machineId": "2731a2a832041c56399c7fa68992d1de",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "dea1b827-f334-41fe-b69d-199321f5f701",
+    "orgName": "franroav",
+    "userId": "HxLYG6q1lB5gJJmD0g",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "franroav",
+    "subscription": null,
+    "userEmail": "franroav@gmail.com",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "921283598378",
+    "versionSf": "4.1.7",
+    "serviceProviderAwsCfStackName": "lambda-nestjs-dev",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}

@@ -1,0 +1,76 @@
+Operational Excellence
+-----------------------
+    Monitoring and Logging:
+
+        - Enable CloudWatch Logs: Ensure that your EKS cluster and Lambda functions have CloudWatch logging enabled for monitoring and troubleshooting.
+        - Prometheus and Grafana: Integrate Prometheus and Grafana for Kubernetes monitoring.
+        - AWS X-Ray: Enable AWS X-Ray to trace requests from API Gateway through your Lambda functions and other services.
+    
+    Automation:
+
+        - Terraform State Management: Ensure your Terraform state is stored in a secure S3 bucket with versioning enabled.
+        - CI/CD Pipelines: Implement CI/CD pipelines using GitHub Actions to automate the deployment process.
+
+Security
+-------------
+    IAM Roles and Policies:
+
+        - Use least privilege access for IAM roles and policies.
+        - Rotate IAM credentials regularly and use AWS Secrets Manager or Parameter Store for secret management.
+    
+    Network Security:
+
+        - VPC: Place your EKS cluster and other resources within a VPC. Use subnets, security groups, and NACLs to control traffic.
+
+        - Security Groups: Define strict security group rules for your EKS nodes, MongoDB, and other resources.
+        
+    Data Protection:
+
+        - Encryption: Ensure all data at rest and in transit is encrypted. Use KMS for key management.
+
+Reliability
+---------------------------
+    High Availability:
+
+        - Multiple AZs: Deploy EKS nodes across multiple availability zones for high availability.
+        - Auto Scaling: Use EKS managed node groups with auto-scaling policies to handle varying loads.
+
+    Backup and Restore:
+
+        - Snapshots: Regularly back up MongoDB data using snapshots.
+        - Disaster Recovery: Implement a disaster recovery plan with defined RTO and RPO.
+
+Performance Efficiency
+-------------------------------
+    Right-Sizing:
+
+        - Regularly monitor and adjust the instance types and sizes of your EKS nodes and other resources.
+        - Use Amazon CloudWatch metrics to identify underutilized resources.
+
+    Cost Optimization:
+
+        - Use Spot Instances for non-critical workloads to reduce costs.
+        - Enable Savings Plans or Reserved Instances for long-term workloads.
+
+Cost Optimization
+-----------------------------
+    Resource Management:
+
+        - Use tags to categorize and track AWS resources for cost allocation.
+        - Implement cost management tools like AWS Cost Explorer and Budgets.
+
+    Storage Optimization:
+
+        - Use lifecycle policies to transition old data to cheaper storage classes in S3.
+        - Optimize EBS volumes by choosing appropriate volume types.
+
+Sustainability
+-------------------------------
+    Optimize Resource Utilization:
+
+        - Use efficient instance types and sizes to reduce energy consumption.
+        - Optimize your Lambda function code to minimize execution time and memory usage.
+
+    Leverage AWS Sustainability Programs:
+
+        - Take advantage of AWS’s carbon footprint tools to measure and reduce your environmental impact.

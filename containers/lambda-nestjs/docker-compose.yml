@@ -1,0 +1,43 @@
+version: '3.9'
+services:
+  mongo_db:
+  # MongoDB Services
+    container_name: mongodb_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - ${env.DB_PORT_LOCAL}:${env.DB_PORT_FOWARDING}
+    volumes: 
+      - mongo_db:/data/db
+  mongo-seed_data: 
+  # Seed Resources
+    container_name: mongo-seed-data-db
+    build: ./seed
+    env_file:
+      - .env
+    links:
+      - db-mongo
+    depends_on:
+      - db-mongo
+    logging:
+      driver: none
+# Nestjs Service
+  api:
+    image: nestjs-dockerized
+    build: .
+    ports:
+      - ${env.PORT_LOCAL}:${env.PORT_FOWARDING}
+    volumes:
+      - .:/usr/src/app
+    environment:
+       PORT: ${env.PORT_LOCAL}
+       MONGODB_URI: ${env:MONGODB_URI}
+       DB_NAME: ${env.DB_NAME}
+       NAME: ${env.NAME}
+    depends_on:
+      - mongo_db
+    # command: nx serve backend
+    
+    
+volumes:
+  mongo_db: {}

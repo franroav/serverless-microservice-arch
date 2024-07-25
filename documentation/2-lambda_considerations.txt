@@ -1,0 +1,28 @@
+    AWS Lambda: Cold Starts, Throttling, and Latency
+    Cold Starts:
+
+        Definition: A cold start occurs when a new instance of your Lambda function is created in response to an event. This can cause latency because the function's container needs to be initialized.
+        - Impact: Cold starts add latency, which can be significant (several hundred milliseconds to a few seconds) depending on the runtime and package size.
+        - Mitigation: 
+            - Use Provisioned Concurrency to keep a pool of warm instances ready.
+            - Optimize function initialization code.
+        
+    Reduce the package size by excluding unnecessary dependencies.
+
+    Throttling:
+
+    Definition: Throttling occurs when the number of requests exceeds the concurrency limits set for your Lambda function or the account.
+        - Impact: Throttled requests are queued and processed once capacity is available, which can increase latency.
+        - Mitigation: Monitor and adjust concurrency limits based on usage patterns. Use AWS Step Functions to manage high loads and complex workflows.
+
+    Latency:
+
+    Definition: Latency is the time it takes for a request to be processed and a response to be returned.
+        - Factors Affecting Latency:
+            - Cold starts.
+            - Network latency between services (e.g., API Gateway to Lambda).
+            - Execution time of the function itself.
+        - Mitigation:
+            - Use VPC endpoints to reduce network latency.
+            - Optimize the code to reduce execution time.
+            - Use caching where applicable (e.g., AWS Lambda@Edge).

@@ -1,0 +1,55 @@
+# PROD STAGE USAGE -  LAMBDA ECR IMAGE
+# -------------------------------------
+
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Resources:
+  NestLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      PackageType: Image
+      ImageUri:  921283598378.dkr.ecr.us-east-1.amazonaws.com/lambda-nestjs-repo # YOUR_ECR_REPOSITORY_URI:latest
+      MemorySize: 128
+      Timeout: 10
+      Policies: AmazonDynamoDBFullAccess
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+            RestApiId:
+              Ref: ApiGatewayRestApi
+  ApiGatewayRestApi:
+    Type: 'AWS::Serverless::Api'
+    Properties:
+      StageName: dev
+
+
+# LOCAL STAGE USAGE -  LAMBDA HANDLER VERSION
+# -------------------------------------
+
+# AWSTemplateFormatVersion: '2010-09-09'
+# Transform: 'AWS::Serverless-2016-10-31'
+# Resources:
+#   NestLambda:
+#     Type: 'AWS::Serverless::Function'
+#     Properties:
+#       Handler: dist/main.handler
+#       Runtime: nodejs14.x
+#       CodeUri: .
+#       MemorySize: 128
+#       Timeout: 10
+#       Policies: AmazonDynamoDBFullAccess
+#       Events:
+#         Api:
+#           Type: Api
+#           Properties:
+#             Path: /{proxy+}
+#             Method: ANY
+#             RestApiId:
+#               Ref: ApiGatewayRestApi
+#   ApiGatewayRestApi:
+#     Type: 'AWS::Serverless::Api'
+#     Properties:
+#       StageName: dev

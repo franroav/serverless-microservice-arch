@@ -1,0 +1,52 @@
+Types of Distributed Systems and Architectures
+Types of Distributed Systems
+
+Client-Server Systems:
+----------------------------------
+Description: Clients request services and resources from servers which process and provide responses.
+Example: Web applications where the browser is the client and the web server is the server.
+
+Peer-to-Peer (P2P) Systems:
+-----------------------------------
+Description: All nodes have equal responsibilities and capabilities, and they share resources directly with each other.
+Example: File-sharing networks like BitTorrent.
+
+Three-Tier Architectures:
+-----------------------------------
+Description: Divides the system into three layers: Presentation (UI), Business Logic, and Data Storage.
+Example: Web applications with front-end, application server, and database server.
+
+N-Tier Architectures:
+------------------------------------
+Description: Extends three-tier architecture into more layers for better separation of concerns.
+Example: Enterprise applications with additional layers for services, APIs, etc.
+
+Microservices Architecture:
+------------------------------------
+Description: Breaks down applications into small, loosely coupled services that can be developed, deployed, and scaled independently.
+Example: Modern cloud-native applications using containers and orchestration tools like Kubernetes.
+
+Service-Oriented Architecture (SOA):
+----------------------------------------
+Description: Similar to microservices but usually involves larger, more monolithic services that communicate over a network.
+Example: Enterprise systems where different business functions are encapsulated as services.
+
+Event-Driven Architecture:
+------------------------------------------
+Description: Uses events to trigger communication between decoupled services or components.
+Example: Real-time applications like stock trading platforms.
+
+Distributed Databases:
+---------------------------------------------
+Description: Database is spread across multiple nodes to improve availability and scalability.
+Example: NoSQL databases like Cassandra or MongoDB.
+
+Grid Computing:
+----------------------------------------------
+Description: Combines resources from multiple systems to work on a single task, often used for scientific computations.
+Example: SETI@home project.
+
+Fog and Edge Computing:
+----------------------------------------------
+Description: Extends cloud computing closer to the source of data generation (edge devices) to reduce latency.
+Example: IoT applications.
