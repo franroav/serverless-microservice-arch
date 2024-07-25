@@ -5,8 +5,9 @@
 *.tfstate
 *.tfstate.*
 
-terraform.tfstate.
+terraform.tfstate.*
 terraform.tfstate.backup
+
 # Crash log files
 crash.log
 crash.*.log
@@ -35,7 +36,5 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-
-.terraform/providers/registry.terraform.io/
-
-.terraform/providers/registry.terraform.io
+# Ignore .terraform directory
+.terraform/
