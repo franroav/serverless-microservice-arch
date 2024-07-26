@@ -1,6 +1,10 @@
 # AWS SERVERLESS AND MICROSERVICE ARCHITECTURE ON EKS CLUSTER 🌟
 * **Francisco Javier Roa Valenzuela** - *Developer* -
 
+## Architecture Diagram
+
+![Arquitecture Diagram](https://s3.amazonaws.com/awsfranroavdeveloper.click/resources/images/logo-solicitante/serverless-microservice-architecture.png)
+
 ## Table of Contents
 1. [Introduction](#introduction) 🛳️
 2. [Local Environment Setup](#local-environment-setup) 🛠️
@@ -110,7 +114,7 @@ The architecture of the project consists of several components working together 
 
 3. Arquitecture Diagram
 
-![Arquitecture Diagram](https://s3.amazonaws.com/awsfranroavdeveloper.click/resources/images/logo-solicitante/eks-arq-diagram.png)
+![Arquitecture Diagram](https://s3.amazonaws.com/awsfranroavdeveloper.click/resources/images/logo-solicitante/serverless-microservice-architecture.png)
 
 4. Design Patterns
 
